@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="SISALUD Guárico · Sistema de Información de Salud. Registro y validación de vacunación con acceso por correo aprobado." />
+  <title>SISALUD Guárico | Sistema de Información de Salud</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Crect%20width='24'%20height='24'%20rx='4'%20fill='%2300247d'/%3E%3Cpath%20d='M12%205v14M5%2012h14'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="vendor/roboto/roboto.css" />
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="css/institucional.css" />
+  <link rel="stylesheet" href="css/portada.css" />
+</head>
+<body class="sisalud">
+
+  <!-- ===== BANDA SUPERIOR ===== -->
+  <div class="top-band">
+    <div class="top-band-inner">
+      <span><i class="fas fa-globe"></i> República Bolivariana de Venezuela</span>
+      <span>
+        <i class="fas fa-phone-alt"></i> 0800-SALUD-VE &nbsp;|&nbsp;
+        <i class="fas fa-envelope"></i> salud@guarico.gob.ve
+        <span class="demo-mark"> · Prototipo de demostración</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===== HEADER INSTITUCIONAL ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="header-brand" href="index.html" aria-label="SISALUD Guárico, inicio">
+        <div class="brand-emblem">
+          <i class="fas fa-plus-circle"></i>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title">SISALUD <span>Guárico</span></div>
+          <div class="brand-sub">Sistema de Información de Salud</div>
+          <div class="brand-dep">Gobernación del Estado Guárico</div>
+        </div>
+      </a>
+
+      <div class="flag-stripe-group" aria-hidden="true">
+        <div class="flag-stripe s-red"></div>
+        <div class="flag-stripe s-yellow"></div>
+        <div class="flag-stripe s-blue"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== NAV PRINCIPAL ===== -->
+  <nav class="main-nav" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <ul class="nav-list">
+        <li><a href="#inicio" class="nav-item active"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#funciones" class="nav-item"><i class="fas fa-th-list"></i> Funciones</a></li>
+        <li><a href="#acceso" class="nav-item"><i class="fas fa-users"></i> Acceso</a></li>
+        <li><a href="#contacto" class="nav-item"><i class="fas fa-phone"></i> Contacto</a></li>
+      </ul>
+      <div class="session-actions" id="navAcciones">
+        <button type="button" class="btn-ingresar" id="btnIngresar" data-auth="login">
+          <i class="fas fa-sign-in-alt"></i> Ingresar al Sistema
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <i class="fas fa-shield-alt"></i> Sistema de Información · Estado Guárico
+        </div>
+        <h1>Bienvenido al Sistema de<br />Información de Salud</h1>
+        <p>
+          Plataforma digital para el registro y la validación de vacunas aplicadas
+          en los centros de atención del Estado Guárico. El acceso se habilita por
+          correo electrónico y requiere la aprobación del perfil Master.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="btn-hero-primary" data-auth="login">
+            <i class="fas fa-sign-in-alt"></i> Ingresar al Sistema
+          </button>
+          <a href="#funciones" class="btn-hero-sec">
+            <i class="fas fa-info-circle"></i> Ver Funciones
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-box">
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>11</strong>
+          <span>Municipios</span>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-map-pin"></i>
+          <strong>53</strong>
+          <span>Parroquias</span>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-hospital"></i>
+          <strong>11</strong>
+          <span>Centros demo</span>
+        </div>
+        <div class="stat-box">
+          <i class="fas fa-syringe"></i>
+          <strong>Activo</strong>
+          <span>Módulo de Vacunas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FUNCIONES ===== -->
+  <section class="section funciones" id="funciones">
+    <div class="section-inner">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Funciones del Sistema</h2>
+        <div class="title-underline"></div>
+        <p class="section-desc">Módulos disponibles y hoja de ruta del prototipo.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="func-card">
+          <div class="fc-icon red"><i class="fas fa-syringe"></i></div>
+          <h3>Registro de Vacunas</h3>
+          <p>Registra tipo de vacuna, dosis, lote, fecha y centro de aplicación. Consulta el historial completo con búsqueda por paciente, cédula o lote.</p>
+          <span class="func-badge activo"><i class="fas fa-check"></i> Activo</span>
+        </article>
+
+        <article class="func-card">
+          <div class="fc-icon blue"><i class="fas fa-user-check"></i></div>
+          <h3>Validación de Registros</h3>
+          <p>El perfil Revisor consulta los registros y marca cada dosis como validada, dejando constancia de quién la aprobó y cuándo.</p>
+          <span class="func-badge activo"><i class="fas fa-check"></i> Activo</span>
+        </article>
+
+        <article class="func-card">
+          <div class="fc-icon yellow"><i class="fas fa-users-cog"></i></div>
+          <h3>Gestión de Usuarios</h3>
+          <p>Las personas solicitan acceso con su correo. El Master aprueba o rechaza la solicitud y asigna el rol de Centro o Revisor.</p>
+          <span class="func-badge activo"><i class="fas fa-check"></i> Activo</span>
+        </article>
+
+        <article class="func-card">
+          <div class="fc-icon red"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>Selección Geográfica</h3>
+          <p>Centros de salud distribuidos en los municipios del Estado Guárico, con estado, municipio y parroquia autocompletados.</p>
+          <span class="func-badge activo"><i class="fas fa-check"></i> Activo</span>
+        </article>
+
+        <article class="func-card">
+          <div class="fc-icon blue"><i class="fas fa-microscope"></i></div>
+          <h3>Exámenes Médicos</h3>
+          <p>Solicitud y seguimiento de exámenes médicos requeridos para la emisión de certificados de salud oficiales.</p>
+          <span class="func-badge prox"><i class="fas fa-clock"></i> Próximamente</span>
+        </article>
+
+        <article class="func-card">
+          <div class="fc-icon yellow"><i class="fas fa-chart-bar"></i></div>
+          <h3>Certificados y Reportes</h3>
+          <p>Emisión de certificados y reportes de vacunación por municipio, parroquia y período de tiempo.</p>
+          <span class="func-badge prox"><i class="fas fa-clock"></i> Próximamente</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIPO DE ACCESO ===== -->
+  <section class="section acceso bg-light" id="acceso">
+    <div class="section-inner">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Perfiles de Acceso</h2>
+        <div class="title-underline"></div>
+        <p class="section-desc">El rol no se elige al entrar: se asigna al correo cuando el Master aprueba la solicitud.</p>
+      </div>
+
+      <div class="access-grid">
+        <article class="access-card" id="accCentro">
+          <div class="ac-header blue">
+            <i class="fas fa-hospital-alt"></i>
+            <h3>Centro de Salud</h3>
+          </div>
+          <div class="ac-body">
+            <p>Personal médico o administrativo de los centros de atención. Registra las vacunas aplicadas y consulta el historial.</p>
+            <ul class="permisos">
+              <li class="si"><i class="fas fa-check"></i> Registrar vacunas</li>
+              <li class="si"><i class="fas fa-check"></i> Consultar registros de su centro</li>
+              <li class="si"><i class="fas fa-check"></i> Revisar el detalle del paciente</li>
+              <li class="no"><i class="fas fa-times"></i> Validar registros</li>
+              <li class="no"><i class="fas fa-times"></i> Administrar usuarios</li>
+            </ul>
+            <div class="ac-actions">
+              <button type="button" class="btn-acceder" data-auth="login">
+                <i class="fas fa-sign-in-alt"></i> Ingresar
+              </button>
+              <button type="button" class="btn-acceder-sec" data-solicitar="centro">
+                <i class="fas fa-user-plus"></i> Solicitar acceso
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="access-card destacado" id="accRevisor">
+          <div class="ribbon">Revisor</div>
+          <div class="ac-header red">
+            <i class="fas fa-user-check"></i>
+            <h3>Revisor / Aprobador</h3>
+          </div>
+          <div class="ac-body">
+            <p>Encargado de revisar los datos ingresados por los centros y validar cada registro antes de darlo por aprobado.</p>
+            <ul class="permisos">
+              <li class="si"><i class="fas fa-check"></i> Consultar todos los registros</li>
+              <li class="si"><i class="fas fa-check"></i> Revisar datos del paciente</li>
+              <li class="si"><i class="fas fa-check"></i> Validar registros</li>
+              <li class="no"><i class="fas fa-times"></i> Crear registros de vacunación</li>
+              <li class="no"><i class="fas fa-times"></i> Administrar usuarios</li>
+            </ul>
+            <div class="ac-actions">
+              <button type="button" class="btn-acceder" data-auth="login">
+                <i class="fas fa-sign-in-alt"></i> Ingresar
+              </button>
+              <button type="button" class="btn-acceder-sec" data-solicitar="revisor">
+                <i class="fas fa-user-plus"></i> Solicitar acceso
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="access-card" id="accMaster">
+          <div class="ac-header yellow">
+            <i class="fas fa-crown"></i>
+            <h3>Administrador Master</h3>
+          </div>
+          <div class="ac-body">
+            <p>Acceso completo al sistema. Aprueba solicitudes, asigna roles por correo, administra usuarios y supervisa los registros.</p>
+            <ul class="permisos">
+              <li class="si"><i class="fas fa-check"></i> Acceso total</li>
+              <li class="si"><i class="fas fa-check"></i> Aprobar o rechazar solicitudes</li>
+              <li class="si"><i class="fas fa-check"></i> Asignar rol y centro</li>
+              <li class="si"><i class="fas fa-check"></i> Validar registros</li>
+              <li class="no"><i class="fas fa-times"></i> Registro público sin aprobación</li>
+            </ul>
+            <div class="ac-actions">
+              <button type="button" class="btn-acceder" data-auth="login">
+                <i class="fas fa-sign-in-alt"></i> Ingresar
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="acceso-nota">
+        <i class="fas fa-info-circle"></i>
+        <span>La cuenta Master inicial es <strong>master@sisalud.gob.ve</strong>. Desde ella se aprueban los correos del personal de Centro y Revisor. No hay envío real de correos: la aprobación ocurre dentro del sistema.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MUNICIPIOS ===== -->
+  <section class="section municipios-sec" id="cobertura">
+    <div class="section-inner">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Cobertura — Estado Guárico</h2>
+        <div class="title-underline"></div>
+      </div>
+      <div class="mun-grid">
+        <div class="mun-tag"><i class="fas fa-city"></i> San Juan de los Morros</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Calabozo</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Valle de la Pascua</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Zaraza</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Altagracia de Orituco</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Las Mercedes del Llano</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> El Sombrero</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Tucupido</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Chaguaramas</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Cazorla</div>
+        <div class="mun-tag"><i class="fas fa-city"></i> Santa María de Ipire</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contacto">
+    <div class="footer-inner">
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <i class="fas fa-plus-circle"></i>
+          <div>
+            <strong>SISALUD Guárico</strong>
+            <span>Sistema de Información de Salud</span>
+          </div>
+        </div>
+        <p>Prototipo de la Gobernación del Estado Guárico para la gestión de datos de salud pública. Los datos se guardan solo en este navegador.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Módulos</h4>
+        <ul>
+          <li><a href="index.html#funciones"><i class="fas fa-angle-right"></i> Registro de Vacunas</a></li>
+          <li><a href="index.html#funciones"><i class="fas fa-angle-right"></i> Validación de Registros</a></li>
+          <li><a href="index.html#funciones"><i class="fas fa-angle-right"></i> Gestión de Usuarios</a></li>
+          <li><a href="index.html#funciones"><i class="fas fa-angle-right"></i> Reportes (próximamente)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> San Juan de los Morros, Guárico</li>
+          <li><i class="fas fa-phone"></i> 0800-SALUD-VE</li>
+          <li><i class="fas fa-envelope"></i> salud@guarico.gob.ve</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SISALUD Guárico — Gobernación del Estado Guárico. <strong>Prototipo de demostración; no es un sistema oficial.</strong></p>
+    </div>
+  </footer>
+
+  <!-- ===== DIÁLOGO DE ACCESO ===== -->
+  <dialog id="modalAcceso" class="auth-dialog" aria-labelledby="authTitulo">
+    <div class="auth-box">
+      <div class="auth-head">
+        <button type="button" class="auth-close" id="authCerrar" aria-label="Cerrar">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="auth-logo"><i class="fas fa-plus-circle"></i></div>
+        <h2 id="authTitulo">Ingresar al Sistema</h2>
+        <p id="authSubtitulo">Acceso para personal autorizado de SISALUD Guárico</p>
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="Acceso o solicitud">
+        <button type="button" class="auth-tab active" id="tabLogin" data-tab="login" role="tab" aria-selected="true">
+          Ingresar
+        </button>
+        <button type="button" class="auth-tab" id="tabSolicitud" data-tab="solicitud" role="tab" aria-selected="false">
+          Solicitar acceso
+        </button>
+      </div>
+
+      <div class="auth-body">
+        <form id="formLogin" class="auth-form" novalidate>
+          <div id="loginAlerta" class="auth-alert" role="alert"></div>
+          <div class="auth-field">
+            <label for="loginCorreo">Correo electrónico</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-envelope"></i>
+              <input id="loginCorreo" type="email" autocomplete="username" placeholder="usuario@sisalud.gob.ve" required />
+            </div>
+          </div>
+          <div class="auth-field">
+            <label for="loginClave">Contraseña</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-lock"></i>
+              <input id="loginClave" type="password" autocomplete="current-password" placeholder="••••••••" required />
+              <button type="button" class="ojo-btn" data-ver-clave="loginClave" aria-label="Mostrar contraseña">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="auth-row">
+            <label class="auth-check"><input id="loginRecordar" type="checkbox" /> Recordarme</label>
+            <button type="button" class="auth-link" data-tab="solicitud">Crear cuenta</button>
+          </div>
+          <button type="submit" class="btn-auth" id="btnLogin">
+            <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+          </button>
+          <p class="auth-note">El correo debe estar aprobado por el Master.</p>
+        </form>
+
+        <form id="formSolicitud" class="auth-form" hidden novalidate>
+          <div id="solAlerta" class="auth-alert" role="alert"></div>
+          <div class="auth-field">
+            <label for="solNombre">Nombre y apellido</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-user"></i>
+              <input id="solNombre" type="text" autocomplete="name" placeholder="Ej. María Rodríguez" required />
+            </div>
+          </div>
+          <div class="auth-field">
+            <label for="solCorreo">Correo electrónico</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-envelope"></i>
+              <input id="solCorreo" type="email" autocomplete="email" placeholder="usuario@sisalud.gob.ve" required />
+            </div>
+          </div>
+          <div class="auth-field">
+            <label for="solRol">Rol que solicitas</label>
+            <div class="auth-input-wrap">
+              <select id="solRol" required>
+                <option value="">Seleccione un rol…</option>
+                <option value="centro">Centro de Salud — registra vacunas</option>
+                <option value="revisor">Revisor / Aprobador — valida registros</option>
+              </select>
+            </div>
+          </div>
+          <div class="auth-field" id="solCentroWrap" hidden>
+            <label for="solCentro">Centro de salud</label>
+            <div class="auth-input-wrap">
+              <select id="solCentro"></select>
+            </div>
+          </div>
+          <div class="auth-field">
+            <label for="solClave">Contraseña</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-lock"></i>
+              <input id="solClave" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres" required />
+              <button type="button" class="ojo-btn" data-ver-clave="solClave" aria-label="Mostrar contraseña">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="auth-field">
+            <label for="solClave2">Confirmar contraseña</label>
+            <div class="auth-input-wrap">
+              <i class="fas fa-lock"></i>
+              <input id="solClave2" type="password" autocomplete="new-password" placeholder="Repite la contraseña" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-auth" id="btnSolicitud">
+            <i class="fas fa-paper-plane"></i> Enviar solicitud
+          </button>
+          <p class="auth-note">El Master revisará la solicitud y asignará el rol a tu correo.</p>
+        </form>
+
+        <details class="auth-demo">
+          <summary>Cuentas de demostración</summary>
+          <ul id="listaDemo"></ul>
+        </details>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/datos.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/portada.js"></script>
+  <script src="live-reload.js"></script>
+</body>
+</html>

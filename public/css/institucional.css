@@ -1,0 +1,453 @@
+/* ============================================================
+   SISALUD Guárico · componentes institucionales compartidos
+   Portada y aplicación usan la misma banda, cabecera, navegación
+   y pie para mantener una sola identidad visual.
+   ============================================================ */
+
+:root {
+  --red: #cf142b;
+  --red-dk: #a50f21;
+  --red-lt: #f5e9eb;
+  --yellow: #f4d03f;
+  --yellow-dk: #d4a017;
+  --yellow-lt: #fef9e7;
+  --blue: #00247d;
+  --blue-md: #003fa8;
+  --blue-lt: #e8edf7;
+  --white: #ffffff;
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-400: #adb5bd;
+  --gray-500: #7b8794;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --border: #dee2e6;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+  --radius: 6px;
+  --radius-lg: 10px;
+  --font: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  --nav-h: 52px;
+  --trans: 0.2s ease;
+}
+
+body.sisalud {
+  font-family: var(--font);
+  color: var(--gray-900);
+}
+
+.top-band {
+  background: var(--blue);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.78rem;
+  padding: 0.35rem 0;
+}
+
+.top-band-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.top-band i {
+  margin-right: 0.3rem;
+}
+
+.top-band .demo-mark {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.header {
+  background: var(--white);
+  border-bottom: 3px solid var(--red);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-emblem {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--red);
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  color: var(--white);
+  flex-shrink: 0;
+  border: 3px solid var(--yellow);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.brand-title span {
+  color: var(--red);
+}
+
+.brand-sub {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.brand-dep {
+  font-size: 0.73rem;
+  color: var(--gray-600);
+}
+
+.flag-stripe-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flag-stripe {
+  height: 8px;
+  border-radius: 2px;
+  width: 80px;
+}
+
+.s-red { background: var(--red); }
+.s-yellow { background: var(--yellow); }
+.s-blue { background: var(--blue); }
+
+.main-nav {
+  background: var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--nav-h);
+}
+
+.nav-list {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: var(--trans);
+}
+
+.nav-item i {
+  font-size: 0.8rem;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+.btn-ingresar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--red);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: var(--trans);
+  box-shadow: var(--shadow-sm);
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-ingresar:hover {
+  background: var(--yellow);
+  color: var(--blue);
+}
+
+.session-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.session-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--white);
+  font-size: 0.78rem;
+  max-width: 20rem;
+}
+
+.session-chip strong {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-chip span {
+  color: var(--yellow);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn-nav-outline,
+.btn-nav-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.8rem;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--trans);
+  white-space: nowrap;
+}
+
+.btn-nav-outline {
+  background: var(--white);
+  color: var(--red);
+  border: 1px solid var(--white);
+}
+
+.btn-nav-outline:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--blue);
+}
+
+.btn-nav-ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-nav-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+}
+
+.footer {
+  background: var(--gray-900);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 3rem 1.5rem 0;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.footer-logo i {
+  font-size: 1.8rem;
+  color: var(--red);
+}
+
+.footer-logo strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.footer-logo span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-col > p {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-col h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col li,
+.footer-col a {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--trans);
+}
+
+.footer-col a:hover {
+  color: var(--yellow);
+}
+
+.footer-col li i,
+.footer-col a i {
+  font-size: 0.75rem;
+  color: var(--red);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0 1.5rem;
+  text-align: center;
+  font-size: 0.77rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom strong {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+@media (max-width: 960px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-inner {
+    padding: 0.85rem 1rem;
+  }
+
+  .brand-emblem {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  .brand-sub,
+  .brand-dep {
+    font-size: 0.72rem;
+  }
+
+  .nav-inner {
+    padding: 0.4rem 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-list {
+    justify-content: center;
+    gap: 0.1rem;
+  }
+
+  .nav-item {
+    padding: 0.42rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .session-chip {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-band-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.2rem;
+  }
+
+  .flag-stripe-group {
+    display: none;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    padding-bottom: 1.25rem;
+  }
+}

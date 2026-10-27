@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>Registro de Vacunación | SISALUD Guárico</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Crect%20width='24'%20height='24'%20rx='4'%20fill='%2300247d'/%3E%3Cpath%20d='M12%205v14M5%2012h14'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="vendor/roboto/roboto.css" />
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="css/institucional.css" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body class="sisalud app-body">
+
+  <div class="top-band">
+    <div class="top-band-inner">
+      <span><i class="fas fa-globe"></i> República Bolivariana de Venezuela</span>
+      <span>
+        <i class="fas fa-shield-alt"></i> SISALUD Guárico
+        <span class="demo-mark"> · Prototipo de demostración</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a class="header-brand" href="index.html" aria-label="Volver a la portada de SISALUD Guárico">
+        <div class="brand-emblem">
+          <i class="fas fa-plus-circle"></i>
+        </div>
+        <div class="brand-info">
+          <div class="brand-title">SISALUD <span>Guárico</span></div>
+          <div class="brand-sub">Sistema de Información de Salud</div>
+          <div class="brand-dep">Gobernación del Estado Guárico</div>
+        </div>
+      </a>
+      <div class="flag-stripe-group" aria-hidden="true">
+        <div class="flag-stripe s-red"></div>
+        <div class="flag-stripe s-yellow"></div>
+        <div class="flag-stripe s-blue"></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Navegación del sistema">
+    <div class="nav-inner">
+      <ul class="nav-list">
+        <li>
+          <button type="button" class="nav-item active" id="navRegistro" data-vista="registro">
+            <i class="fas fa-syringe"></i> Registro
+          </button>
+        </li>
+        <li id="navUsuariosItem" hidden>
+          <button type="button" class="nav-item" id="navUsuarios" data-vista="usuarios">
+            <i class="fas fa-users-cog"></i> Usuarios
+            <span class="nav-badge" id="badgePendientes">0</span>
+          </button>
+        </li>
+        <li>
+          <a class="nav-item" href="index.html"><i class="fas fa-home"></i> Portada</a>
+        </li>
+      </ul>
+      <div class="session-actions">
+        <span class="session-chip" id="chipUsuario">
+          <i class="fas fa-user-circle"></i>
+          <strong id="chipNombre">—</strong>
+          <span id="chipRol">—</span>
+        </span>
+        <button type="button" class="btn-nav-ghost" id="btn-salir">
+          <i class="fas fa-sign-out-alt"></i> Salir
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="aviso" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <main class="app-main">
+    <!-- ===================== REGISTRO ===================== -->
+    <section id="vistaRegistro">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Registro de vacunación</h1>
+          <p class="page-subtitle" id="subtituloRol">Datos del paciente y de la dosis aplicada.</p>
+        </div>
+        <div class="page-meta">
+          <span class="chip-institucional" id="chipCentro">—</span>
+          <span class="page-date" id="fecha-hoy"></span>
+        </div>
+      </div>
+
+      <div class="app-layout" id="layoutRegistro">
+        <!-- ============ FORMULARIO ============ -->
+        <section id="panelFormulario" aria-labelledby="titulo-ficha">
+          <form id="form-registro" class="panel app-panel">
+            <div class="panel-head">
+              <h2 id="titulo-ficha" class="panel-title"><i class="fas fa-file-medical"></i> Ficha de vacunación</h2>
+              <span class="panel-note">Tarjeta venezolana</span>
+            </div>
+
+            <div class="panel-body form-body">
+              <fieldset>
+                <legend class="section-title">1. Centro de salud</legend>
+                <div class="form-grid">
+                  <div class="span-2">
+                    <label for="centro" class="lbl">Centro de salud <span class="req">*</span></label>
+                    <select id="centro" name="centro" class="field" required>
+                      <option value="">Seleccione un centro…</option>
+                    </select>
+                    <p class="help" id="ayudaCentro">La ubicación se completa al elegir el establecimiento.</p>
+                  </div>
+                  <div class="form-grid-3 span-2">
+                    <div>
+                      <label for="estadoCentro" class="lbl">Estado</label>
+                      <input id="estadoCentro" type="text" class="field field-readonly" readonly tabindex="-1" placeholder="—" />
+                    </div>
+                    <div>
+                      <label for="municipioCentro" class="lbl">Municipio</label>
+                      <input id="municipioCentro" type="text" class="field field-readonly" readonly tabindex="-1" placeholder="—" />
+                    </div>
+                    <div>
+                      <label for="parroquiaCentro" class="lbl">Parroquia</label>
+                      <input id="parroquiaCentro" type="text" class="field field-readonly" readonly tabindex="-1" placeholder="—" />
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend class="section-title">2. Datos del paciente</legend>
+                <div class="form-grid">
+                  <div class="span-2">
+                    <p class="lbl">Nombre del paciente <span class="req">*</span></p>
+                    <div class="form-grid">
+                      <div>
+                        <label for="primerNombre" class="lbl">Primer nombre <span class="req">*</span></label>
+                        <input id="primerNombre" name="primerNombre" type="text" class="field" placeholder="Ej. Sofía" autocomplete="given-name" required />
+                      </div>
+                      <div>
+                        <label for="segundoNombre" class="lbl">Segundo nombre <span class="req">*</span></label>
+                        <input id="segundoNombre" name="segundoNombre" type="text" class="field" placeholder="Ej. Valentina" autocomplete="additional-name" required />
+                      </div>
+                      <div>
+                        <label for="primerApellido" class="lbl">Primer apellido <span class="req">*</span></label>
+                        <input id="primerApellido" name="primerApellido" type="text" class="field" placeholder="Ej. Martínez" autocomplete="family-name" required />
+                      </div>
+                      <div>
+                        <label for="segundoApellido" class="lbl">Segundo apellido <span class="req">*</span></label>
+                        <input id="segundoApellido" name="segundoApellido" type="text" class="field" placeholder="Ej. Silva" autocomplete="family-name" required />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="cedula" class="lbl">Cédula de identidad <span class="req">*</span></label>
+                    <input id="cedula" name="cedula" type="text" class="field" placeholder="V-12345678" autocomplete="off" required />
+                  </div>
+
+                  <div>
+                    <label for="fechaNacimiento" class="lbl">Fecha de nacimiento <span class="req">*</span></label>
+                    <input id="fechaNacimiento" name="fechaNacimiento" type="date" class="field" required />
+                  </div>
+
+                  <div>
+                    <label for="sexo" class="lbl">Sexo <span class="req">*</span></label>
+                    <select id="sexo" name="sexo" class="field" required>
+                      <option value="">Seleccione…</option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Masculino">Masculino</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label for="telefono" class="lbl">Teléfono</label>
+                    <input id="telefono" name="telefono" type="tel" class="field" placeholder="0412-1234567" autocomplete="off" />
+                  </div>
+
+                  <div class="span-2">
+                    <label for="representante" class="lbl">Representante (si es menor de edad)</label>
+                    <input id="representante" name="representante" type="text" class="field" placeholder="Nombre y apellido" autocomplete="off" />
+                  </div>
+
+                  <div class="span-2">
+                    <label for="correo" class="lbl">Correo electrónico <span class="req">*</span></label>
+                    <input id="correo" name="correo" type="email" class="field" placeholder="paciente@correo.com" autocomplete="email" required />
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend class="section-title">3. Datos de la vacuna</legend>
+                <div class="form-grid">
+                  <div class="span-2">
+                    <label for="vacuna" class="lbl">Vacuna <span class="req">*</span></label>
+                    <select id="vacuna" name="vacuna" class="field" required>
+                      <option value="bcg">BCG (antituberculosa)</option>
+                      <option value="hepb">Hepatitis B</option>
+                      <option value="penta">Pentavalente (DPT + Hib + HB)</option>
+                      <option value="polio">Antipoliomielítica (Sabin)</option>
+                      <option value="srp">SRP (sarampión, rubéola, parotiditis)</option>
+                    </select>
+                    <p id="esquema-vacuna" class="help"></p>
+                  </div>
+
+                  <div>
+                    <label for="dosis" class="lbl">Dosis <span class="req">*</span></label>
+                    <select id="dosis" name="dosis" class="field" required></select>
+                  </div>
+
+                  <div>
+                    <label for="fechaAplicacion" class="lbl">Fecha de aplicación <span class="req">*</span></label>
+                    <input id="fechaAplicacion" name="fechaAplicacion" type="date" class="field" required />
+                  </div>
+
+                  <div>
+                    <label for="lote" class="lbl">Lote <span class="req">*</span></label>
+                    <input id="lote" name="lote" type="text" class="field field-mono" placeholder="Ej. PNT-2451" autocomplete="off" required />
+                  </div>
+
+                  <div class="span-2">
+                    <label for="observaciones" class="lbl">Observaciones</label>
+                    <textarea id="observaciones" name="observaciones" rows="2" class="field" placeholder="Reacciones, indicaciones o notas"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+
+              <p class="help help-box">
+                <i class="fas fa-info-circle"></i>
+                Al guardar se muestra una revisión. El registro queda bloqueado para edición y pasa a la bandeja de validación del Revisor.
+              </p>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary flex-1">
+                  <i class="fas fa-check"></i> Revisar y guardar
+                </button>
+                <button type="reset" class="btn-secondary">Limpiar</button>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <!-- ============ TABLA ============ -->
+        <section aria-labelledby="titulo-tabla" class="table-panel">
+          <div class="panel app-panel">
+            <div class="panel-head panel-head-wrap">
+              <h2 id="titulo-tabla" class="panel-title"><i class="fas fa-list-check"></i> Registros recientes</h2>
+              <span id="contador" class="chip">0 registros</span>
+
+              <div class="search-wrap">
+                <i class="fas fa-search"></i>
+                <label for="buscar" class="sr-only">Buscar registros</label>
+                <input id="buscar" type="search" class="field" placeholder="Buscar paciente, cédula o lote" />
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table registros-table">
+                <caption class="sr-only">Registros de vacunación recientes</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Vacuna / dosis</th>
+                    <th scope="col">Lote</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Centro</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col" class="text-right">Detalle</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla"></tbody>
+              </table>
+            </div>
+
+            <div class="panel-foot">
+              <span id="resumen">Aplicadas hoy: 0</span>
+              <span class="foot-note">Registros confirmados · datos solo en este navegador.</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ===================== USUARIOS ===================== -->
+    <section id="vistaUsuarios" hidden>
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Gestión de usuarios</h1>
+          <p class="page-subtitle">Aprueba las solicitudes de acceso y administra los correos con rol asignado.</p>
+        </div>
+        <div class="page-meta">
+          <span class="chip-institucional"><i class="fas fa-crown"></i> Solo Master</span>
+        </div>
+      </div>
+
+      <div class="panel app-panel">
+        <div class="panel-head">
+          <h2 class="panel-title"><i class="fas fa-user-clock"></i> Solicitudes pendientes</h2>
+          <span id="contadorPendientes" class="chip chip-warn">0 pendientes</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Rol solicitado</th>
+                <th scope="col">Centro</th>
+                <th scope="col">Solicitud</th>
+                <th scope="col" class="text-right">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaPendientes"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel app-panel mt-4">
+        <div class="panel-head">
+          <h2 class="panel-title"><i class="fas fa-users"></i> Usuarios aprobados</h2>
+          <span id="contadorUsuarios" class="chip">0 usuarios</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Centro</th>
+                <th scope="col">Estado</th>
+                <th scope="col" class="text-right">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaUsuarios"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p>Modelo de demostración · No es un sistema oficial · Los datos se guardan solo en este navegador.</p>
+    </footer>
+  </main>
+
+  <!-- ===================== REVISIÓN ===================== -->
+  <dialog id="dlg-confirmar" class="app-dialog" aria-labelledby="titulo-confirmar">
+    <div class="dialog-head">
+      <div>
+        <h2 id="titulo-confirmar" class="dialog-title">Revisar y confirmar</h2>
+        <p class="dialog-sub">Comprueba los datos antes de guardar.</p>
+      </div>
+      <button type="button" class="dialog-close" data-cerrar="dlg-confirmar" aria-label="Cerrar revisión">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div id="confirmar-contenido" class="dialog-body" tabindex="0" aria-label="Resumen del registro a confirmar"></div>
+    <div class="dialog-foot dialog-foot-col">
+      <div id="confirmar-error" class="alert alert-error hidden" role="alert" tabindex="-1"></div>
+      <label class="check-line">
+        <input id="chk-confirmar" type="checkbox" />
+        <span>Confirmo que revisé los datos y que corresponden a la aplicación registrada. El registro quedará bloqueado y pasará a validación.</span>
+      </label>
+      <div class="dialog-actions">
+        <button id="btn-confirmar-guardar" type="button" class="btn-primary flex-1" disabled>
+          <i class="fas fa-check"></i> Confirmar y guardar
+        </button>
+        <button type="button" class="btn-secondary" data-cerrar="dlg-confirmar">Volver a editar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ===================== DETALLE ===================== -->
+  <dialog id="dlg-detalle" class="app-dialog" aria-labelledby="titulo-detalle">
+    <div class="dialog-head">
+      <div>
+        <h2 id="titulo-detalle" class="dialog-title">Detalle del registro</h2>
+        <p class="dialog-sub">Información completa de la dosis aplicada.</p>
+      </div>
+      <button type="button" class="dialog-close" data-cerrar="dlg-detalle" aria-label="Cerrar detalle">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div id="detalle-contenido" class="dialog-body" tabindex="0" aria-label="Detalle del registro"></div>
+    <div class="dialog-foot dialog-actions">
+      <button type="button" id="btn-validar" class="btn-primary" hidden>
+        <i class="fas fa-user-check"></i> Validar registro
+      </button>
+      <button type="button" class="btn-secondary" data-cerrar="dlg-detalle">Cerrar</button>
+    </div>
+  </dialog>
+
+  <!-- ===================== APROBAR USUARIO ===================== -->
+  <dialog id="dlg-aprobar" class="app-dialog" aria-labelledby="titulo-aprobar">
+    <div class="dialog-head">
+      <div>
+        <h2 id="titulo-aprobar" class="dialog-title">Aprobar solicitud</h2>
+        <p class="dialog-sub">Revisa el correo y asigna el rol definitivo.</p>
+      </div>
+      <button type="button" class="dialog-close" data-cerrar="dlg-aprobar" aria-label="Cerrar aprobación">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p id="aprobar-resumen" class="approve-summary"></p>
+      <div class="form-grid">
+        <div>
+          <label for="aprobar-rol" class="lbl">Rol aprobado <span class="req">*</span></label>
+          <select id="aprobar-rol" class="field">
+            <option value="centro">Centro de Salud</option>
+            <option value="revisor">Revisor / Aprobador</option>
+            <option value="master">Administrador Master</option>
+          </select>
+        </div>
+        <div id="aprobar-centro-wrap">
+          <label for="aprobar-centro" class="lbl">Centro de salud <span class="req">*</span></label>
+          <select id="aprobar-centro" class="field"></select>
+        </div>
+      </div>
+      <div id="aprobar-error" class="alert alert-error hidden" role="alert"></div>
+    </div>
+    <div class="dialog-foot dialog-actions">
+      <button type="button" id="btn-aprobar" class="btn-primary">
+        <i class="fas fa-check"></i> Aprobar usuario
+      </button>
+      <button type="button" class="btn-secondary" data-cerrar="dlg-aprobar">Cancelar</button>
+    </div>
+  </dialog>
+
+  <!-- ===================== CONFIRMACIÓN GENÉRICA ===================== -->
+  <dialog id="dlg-confirmar-accion" class="app-dialog" aria-labelledby="titulo-accion">
+    <div class="dialog-head">
+      <div>
+        <h2 id="titulo-accion" class="dialog-title">Confirmar acción</h2>
+        <p class="dialog-sub">Esta acción se aplica de inmediato.</p>
+      </div>
+      <button type="button" class="dialog-close" data-cerrar="dlg-confirmar-accion" aria-label="Cerrar confirmación">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p id="accion-mensaje"></p>
+    </div>
+    <div class="dialog-foot dialog-actions">
+      <button type="button" id="btn-confirmar-accion" class="btn-danger">
+        <i class="fas fa-check"></i> Confirmar
+      </button>
+      <button type="button" class="btn-secondary" data-cerrar="dlg-confirmar-accion">Cancelar</button>
+    </div>
+  </dialog>
+
+  <script src="js/datos.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="live-reload.js"></script>
+</body>
+</html>
